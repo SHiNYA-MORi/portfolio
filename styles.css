@@ -18,6 +18,7 @@ header {
 nav ul {
     list-style-type: none;
     padding: 0;
+    text-align: center;
 }
 
 nav ul li {
@@ -67,20 +68,22 @@ header, footer {
 }
 
 .profile-wrapper {
-    display: flex; /* フレックスボックスを使用して要素を横並びに */
-    align-items: center; /* 中央揃え */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px; /* 写真と文字の間隔を追加 */
 }
 
 .profile-photo {
-    max-width: 200px; /* 画像の最大幅を指定 */
-    margin: 20px 0; /* 上下の余白を追加 */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* 影を追加 */
-    margin-right: 100px; /* 画像とテキストの間の余白を追加 */
-    margin-top: 50px;
+    max-width: 200px;
+    margin: 20px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .profile-text {
     flex-grow: 1; /* 残りのスペースをテキスト部分に割り当て */
+    text-align: left; /* テキストを左揃え */
 }
 
 .container {
@@ -177,8 +180,8 @@ header, footer {
 
 .sns-icons {
     position: absolute;      /* 絶対位置を設定 */
-    top: 100px;               /* 上から10pxの位置に配置 */
-    right: 100px;             /* 右から10pxの位置に配置 */
+    top: 1000px;               /* 上から10pxの位置に配置 */
+    right: 10000px;             /* 右から10pxの位置に配置 */
 }
 
 .sns-icons a {
@@ -186,7 +189,7 @@ header, footer {
 }
 
 .sns-icons img {
-    width: 30px;         /* アイコンのサイズを設定 */
+    width: 20px;         /* アイコンのサイズを設定 */
     height: auto;
 }
 
@@ -201,4 +204,63 @@ h1 {
 h2 {
     margin: 0 0;
     margin-bottom: 0px;
+}
+/* レスポンシブデザインのためのメディアクエリ */
+@media (min-width: 600px) {
+    .profile-wrapper {
+        flex-direction: row;
+    }
+
+    .profile-photo {
+        margin-right: 40px; /* 写真と文字の間隔を追加 */
+        margin-top: 0;
+    }
+
+    .contact-wrapper {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .sns-icons {
+        position: absolute;
+        top: 50px;
+        right: 50px;
+    }
+}
+
+@media (max-width: 599px) {
+    body {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    .profile-wrapper {
+        align-items: flex-start; /* 左揃えに変更 */
+        text-align: left; /* テキストを左揃え */
+    }
+
+    .sns-icons {
+        flex-direction: row;
+        justify-content: center;
+        position: static;
+        margin-top: 10px;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 5px 0;
+    }
+
+    nav ul {
+        padding: 0;
+        text-align: center;
+    }
+
+    header, footer {
+        padding: 10px;
+    }
 }
