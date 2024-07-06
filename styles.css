@@ -179,9 +179,9 @@ header, footer {
 }
 
 .sns-icons {
-    position: absolute;      /* 絶対位置を設定 */
-    top: 1000px;               /* 上から10pxの位置に配置 */
-    right: 10000px;             /* 右から10pxの位置に配置 */
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
 }
 
 .sns-icons a {
@@ -205,6 +205,14 @@ h2 {
     margin: 0 0;
     margin-bottom: 0px;
 }
+
+/* h2とSNSアイコンのスタイル */
+.about-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 /* レスポンシブデザインのためのメディアクエリ */
 @media (min-width: 600px) {
     .profile-wrapper {
@@ -226,6 +234,15 @@ h2 {
         top: 50px;
         right: 50px;
     }
+
+    .about-header {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .sns-icons {
+        margin-left: 20px;
+    }
 }
 
 @media (max-width: 599px) {
@@ -245,9 +262,14 @@ h2 {
 
     .sns-icons {
         flex-direction: row;
-        justify-content: center;
+        justify-content: flex-start;
         position: static;
         margin-top: 10px;
+    }
+
+    .about-header {
+        flex-direction: column;
+        align-items: flex-start;
     }
 
     nav ul li {
