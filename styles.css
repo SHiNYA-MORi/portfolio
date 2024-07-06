@@ -261,15 +261,16 @@ h2 {
     }
 
     .sns-icons {
-        flex-direction: row;
-        justify-content: flex-start;
-        position: static;
-        margin-top: 10px;
+        display: flex;
+        align-items: center;
+        margin-left: auto; /* アイコンを右に寄せる */
     }
 
     .about-header {
-        flex-direction: column;
-        align-items: flex-start;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
     }
 
     nav ul li {
