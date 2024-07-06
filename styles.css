@@ -263,7 +263,8 @@ h2 {
     .sns-icons {
         display: flex;
         align-items: center;
-        margin-left: auto; /* アイコンを右に寄せる */
+        justify-content: center; /* アイコンを中央に配置 */
+        margin-top: 10px;
     }
 
     .about-header {
@@ -281,6 +282,17 @@ h2 {
     nav ul {
         padding: 0;
         text-align: center;
+    }
+
+    nav ul li:nth-child(2)::after {
+        content: "";
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    .sns-icons {
+        margin-top: 10px;
     }
 
     header, footer {
