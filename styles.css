@@ -1,70 +1,156 @@
-body {
-    font-family: 'Arial', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+    --color-primary: #66FF66;
+    --color-bg: #fafafa;
+    --color-surface: #ffffff;
+    --color-text: #0a0a0a;
+    --color-text-secondary: #404040;
+    --color-border: #e0e0e0;
+    --color-shadow: rgba(0, 0, 0, 0.08);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --border-radius: 16px;
+    --spacing-xs: 8px;
+    --spacing-sm: 16px;
+    --spacing-md: 24px;
+    --spacing-lg: 32px;
+    --spacing-xl: 48px;
+}
+
+* {
     margin: 0;
     padding: 0;
-    background-color: #fff; /* 背景色を色に */
-    color: #000; /* テキストの色を黒に */
-    line-height: 2.0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+    background-attachment: fixed;
+    color: var(--color-text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 header {
-    background-color: #fff;
-    color: #000;
-    padding: 1rem 0;
+    background: var(--color-surface);
+    color: var(--color-text);
+    padding: var(--spacing-lg) 0;
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: var(--spacing-md);
+    border-bottom: 1px solid var(--color-border);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: var(--transition);
+}
+
+h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin-bottom: var(--spacing-sm);
+    background: linear-gradient(135deg, var(--color-text) 0%, var(--color-text-secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 nav ul {
     list-style-type: none;
     padding: 0;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-xs);
+    flex-wrap: wrap;
 }
 
 nav ul li {
-    display: inline;
-    margin-right: 20px;
-    margin-top: 10px;
-    color: #000;
+    display: inline-block;
 }
 
 nav ul li a {
-    color: #000;
+    color: var(--color-text-secondary);
     text-decoration: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    transition: color 0.3s; /* 文字色の変化を0.3秒で滑らかに */
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: 12px;
+    transition: var(--transition);
+    font-weight: 500;
+    font-size: 0.95rem;
+    position: relative;
+    overflow: hidden;
+}
+
+nav ul li a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--color-primary), #52CC52);
+    opacity: 0;
+    transition: var(--transition);
+    z-index: -1;
+    border-radius: 12px;
 }
 
 nav ul li a:hover {
-    background-color: #fff;
-    color: #66FF66;
+    color: var(--color-text);
+    transform: translateY(-2px);
+}
+
+nav ul li a:hover::before {
+    opacity: 0.12;
 }
 
 section {
-    padding: 2rem;
-    background-color: #fff;
-    margin: 1rem;
-    border-radius: 5px;
-    color: #000;
-    margin-top: -10px;
+    padding: var(--spacing-xl);
+    background: var(--color-surface);
+    margin: var(--spacing-md);
+    border-radius: var(--border-radius);
+    color: var(--color-text);
+    box-shadow: 0 4px 6px var(--color-shadow), 0 1px 3px rgba(0, 0, 0, 0.06);
+    border: 1px solid var(--color-border);
+    transition: var(--transition);
+    animation: fadeIn 0.6s ease-out;
+}
+
+section:hover {
+    box-shadow: 0 10px 15px var(--color-shadow), 0 4px 6px rgba(0, 0, 0, 0.05);
+    transform: translateY(-2px);
 }
 
 footer {
-    background-color: #000;
-    color: #000;
+    background: var(--color-surface);
+    color: var(--color-text-secondary);
     text-align: center;
-    padding: 1rem 0;
+    padding: var(--spacing-lg) 0;
     bottom: 0;
-    font-size: 12px; /* 例: 12pxに設定 */
+    font-size: 0.875rem;
     margin-top: auto;
-}
-
-header, footer {
-    background-color: #fff;
-    color: #000;
-    max-width: 100%; /* 最大幅を100%に */
-    text-align: center;
+    border-top: 1px solid var(--color-border);
 }
 
 .profile-wrapper {
@@ -72,156 +158,281 @@ header, footer {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 20px; /* 写真と文字の間隔を追加 */
+    gap: var(--spacing-lg);
 }
 
 .profile-photo {
-    max-width: 200px;
-    margin: 20px 0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    max-width: 220px;
+    margin: var(--spacing-md) 0;
+    border-radius: 50%;
+    box-shadow: 0 8px 16px var(--color-shadow), 0 0 0 4px var(--color-surface), 0 0 0 5px var(--color-border);
+    transition: var(--transition);
+}
+
+.profile-photo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 24px var(--color-shadow), 0 0 0 4px var(--color-surface), 0 0 0 5px var(--color-primary);
 }
 
 .profile-text {
-    flex-grow: 1; /* 残りのスペースをテキスト部分に割り当て */
-    text-align: left; /* テキストを左揃え */
+    flex-grow: 1;
+    text-align: left;
+}
+
+.profile-text p {
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+    margin-bottom: var(--spacing-sm);
+}
+
+.profile-text a {
+    color: var(--color-text);
+    text-decoration: none;
+    border-bottom: 2px solid var(--color-primary);
+    transition: var(--transition);
+    font-weight: 500;
+}
+
+.profile-text a:hover {
+    color: var(--color-primary);
+    border-bottom-color: transparent;
 }
 
 .container {
-    max-width: 800px; /* コンテンツの最大幅を指定 */
-    margin: 0 auto; /* 左右の自動マージンで中央揃え */
-    padding: 20px; /* 内側の余白を追加 */
-    background-color: #fff; /* 背景色を白に */
+    max-width: 860px;
+    margin: 0 auto;
+    padding: var(--spacing-md);
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
 ::selection {
-    background-color: #66FF66; /* 選択時の背景色 */
-    color: #000; /* 選択時の文字色 */
+    background-color: var(--color-primary);
+    color: var(--color-text);
+}
+
+::-moz-selection {
+    background-color: var(--color-primary);
+    color: var(--color-text);
 }
 
 .no-bullet {
     list-style-type: none;
-    padding-left: 0; /* 通常、リストには左パディングがあるので、それをリセットする場合 */
+    padding-left: 0;
+}
+
+.no-bullet li {
+    padding: var(--spacing-xs) 0;
+    position: relative;
+    padding-left: var(--spacing-md);
+    transition: var(--transition);
+}
+
+.no-bullet li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.no-bullet li:hover {
+    padding-left: var(--spacing-lg);
+    color: var(--color-text);
+}
+
+.no-bullet li:hover::before {
+    transform: translateX(4px);
+}
+
+.no-bullet li a {
+    color: var(--color-text);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: var(--transition);
+    font-weight: 500;
+}
+
+.no-bullet li a:hover {
+    color: var(--color-primary);
+    border-bottom-color: var(--color-primary);
 }
 
 .contact-wrapper {
-    display: flex; /* フレックスボックスを使用 */
-    justify-content: space-between; /* 子要素の間にスペースを配置 */
+    display: flex;
+    justify-content: space-between;
+    gap: var(--spacing-lg);
 }
 
 .contact-info {
-    flex: 1; /* フレックスボックス内での成長率を設定 */
-    padding: 40px;
-    background-color: #fff;
+    flex: 1;
+    padding: var(--spacing-lg);
 }
 
 .form-container {
-    display: flex;        /* フレックスボックスを使用 */
-    flex-direction: column;  /* 縦方向に要素を配置 */
-    align-items: center;   /* 子要素を右側に寄せる */
-    justify-content: center; /* 水平方向の中央に配置 */
-    padding-top: 450px;   /* 上部に少し余白を追加 */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
 }
 
 #contact-form {
-    width: 80%;          /* 例: ビューポートの幅の80% */
-    max-width: 300px;
-    margin-right: 50px;
-    margin-left: 0px;
-    padding: 20px;
-    border: 1px solid #fff;
-    background-color: #fff;
-    flex: 1; /* フレックスボックス内での成長率を設定 */
-    margin-top: -450px;
-    margin-bottom: 20px;
+    width: 100%;
+    max-width: 500px;
+    padding: var(--spacing-lg);
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 6px var(--color-shadow);
 }
 
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: var(--spacing-md);
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: var(--spacing-xs);
+    font-weight: 500;
+    color: var(--color-text);
 }
 
-.form-group input {
-    width: 350px;       /* 幅を100%に設定 */
-    height: 15px;      /* 高さを50pxに設定。お好みの値に変更してください */
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: var(--spacing-sm);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    transition: var(--transition);
+    background: var(--color-surface);
+    color: var(--color-text);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(102, 255, 102, 0.1);
 }
 
 .form-group textarea {
-    width: 350px;       /* 幅を100%に設定。必要に応じてピクセル単位などの値に変更可能 */
-    height: 150px;     /* 高さを150pxに設定。お好みの値に変更してください */
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    resize: none;      /* ユーザーがサイズを変更できないようにする */
+    min-height: 150px;
+    resize: vertical;
 }
 
 .form-group button {
-    padding: 10px 15px;
-    background-color: #000;
-    color: #fff;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    background: linear-gradient(135deg, var(--color-text) 0%, var(--color-text-secondary) 100%);
+    color: var(--color-surface);
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
     cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: var(--transition);
 }
 
 .form-group button:hover {
-    background-color: #ccc;
-    color: #000;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--color-shadow);
 }
 
 .sns-icons {
     display: flex;
     align-items: center;
-    margin-left: 20px;
+    gap: var(--spacing-sm);
 }
 
 .sns-icons a {
-    margin: 0 15px;      /* アイコン間の間隔を設定 */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    transition: var(--transition);
+}
+
+.sns-icons a:hover {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    transform: translateY(-2px);
 }
 
 .sns-icons img {
-    width: 20px;         /* アイコンのサイズを設定 */
+    width: 20px;
     height: auto;
 }
 
-h1, h2, h3 {
-    margin-top: 5px;
-}
-
-h1 {
-    margin-top: 10px;
-}
-/* h2のスタイルを調整 */
 h2 {
-    margin: 0 0;
-    margin-bottom: 0px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-lg);
+    color: var(--color-text);
+    letter-spacing: -0.02em;
+    position: relative;
+    padding-bottom: var(--spacing-sm);
 }
 
-/* h2とSNSアイコンのスタイル */
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-primary), transparent);
+    border-radius: 2px;
+}
+
+h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-top: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text);
+    letter-spacing: -0.01em;
+}
+
 .about-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: var(--spacing-md);
 }
 
-/* レスポンシブデザインのためのメディアクエリ */
-@media (min-width: 600px) {
+/* レスポンシブデザイン */
+@media (min-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    section {
+        padding: var(--spacing-xl) calc(var(--spacing-xl) * 1.5);
+    }
+
     .profile-wrapper {
         flex-direction: row;
+        text-align: left;
+        align-items: flex-start;
     }
 
     .profile-photo {
-        margin-right: 40px; /* 写真と文字の間隔を追加 */
+        margin-right: var(--spacing-xl);
         margin-top: 0;
+        flex-shrink: 0;
     }
 
     .contact-wrapper {
@@ -231,71 +442,71 @@ h2 {
 
     .sns-icons {
         position: absolute;
-        top: 50px;
-        right: 50px;
-    }
-
-    .about-header {
-        flex-direction: row;
-        align-items: center;
-    }
-
-    .sns-icons {
-        margin-left: 20px;
+        top: var(--spacing-xl);
+        right: var(--spacing-xl);
     }
 }
 
-@media (max-width: 599px) {
-    body {
-        flex-direction: column;
-        padding: 10px;
+@media (max-width: 767px) {
+    :root {
+        --border-radius: 12px;
+        --spacing-lg: 24px;
+        --spacing-xl: 32px;
+    }
+
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.125rem;
     }
 
     .container {
-        padding: 10px;
+        padding: var(--spacing-sm);
+    }
+
+    section {
+        padding: var(--spacing-md);
+        margin: var(--spacing-sm);
     }
 
     .profile-wrapper {
-        align-items: flex-start; /* 左揃えに変更 */
-        text-align: left; /* テキストを左揃え */
-    }
-
-    .sns-icons {
-        display: flex;
         align-items: center;
-        justify-content: center; /* アイコンを中央に配置 */
-        margin-top: 10px;
+        text-align: center;
     }
 
-    .about-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
+    .profile-photo {
+        max-width: 180px;
     }
 
-    nav ul li {
-        display: block;
-        margin: 5px 0;
+    .profile-text {
+        text-align: center;
     }
 
     nav ul {
-        padding: 0;
-        text-align: center;
+        flex-direction: column;
+        gap: var(--spacing-xs);
     }
 
-    nav ul li:nth-child(2)::after {
-        content: "";
+    nav ul li {
+        width: 100%;
+    }
+
+    nav ul li a {
         display: block;
         width: 100%;
-        text-align: center;
     }
 
-    .sns-icons {
-        margin-top: 10px;
+    header {
+        padding: var(--spacing-md) 0;
     }
 
-    header, footer {
-        padding: 10px;
+    footer {
+        padding: var(--spacing-md) 0;
     }
 }
