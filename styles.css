@@ -57,44 +57,63 @@ header h1 a:hover {
 }
 
 /* Navigation */
-nav {
-    margin-top: 0.5rem;
+.main-nav {
+    margin-top: 1rem;
 }
 
-nav ul {
+.main-nav > ul {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
-    gap: 0.5rem;
+    gap: 1.5rem;
 }
 
-nav ul li {
-    display: inline;
+.main-nav > ul > li {
+    position: relative;
 }
 
-nav ul li::after {
-    content: ' ∘';
+.main-nav > ul > li > a {
     color: #000;
-    margin-left: 0.5rem;
+    text-decoration: none;
+    font-weight: 500;
 }
 
-nav ul li:last-child::after {
-    content: '';
+.main-nav > ul > li > a:hover {
+    text-decoration: underline;
 }
 
-nav ul li a {
+.main-nav .submenu {
+    list-style: none;
+    padding: 0.3rem 0 0 1rem;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.main-nav .submenu li a {
     color: #00c;
     text-decoration: underline;
-    border-bottom: none;
+    font-size: 0.9rem;
 }
 
-nav ul li a:hover {
+.main-nav .submenu li a:hover {
     color: #00c;
 }
 
-nav ul li a.active {
-    font-weight: normal;
+/* Category Section */
+.category-section {
+    margin-bottom: 2.5rem;
+}
+
+.category-section > h2 {
+    font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin: 0 0 1.5rem 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #ddd;
 }
 
 /* Main Content */
