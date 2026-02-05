@@ -1,0 +1,5 @@
+RewriteEngine On
+
+RewriteRule ^home$ index.html [L]
+RewriteRule ^art$ art.html [L]
+RewriteRule ^research$ research.html [L]
