@@ -349,11 +349,6 @@ footer p {
     border-color: #000;
 }
 
-.conf-desc {
-    margin: 0.2rem 0 0.4rem 0;
-    font-size: 0.95rem;
-    color: #333;
-}
 
 .project-body .role {
     font-style: italic;
