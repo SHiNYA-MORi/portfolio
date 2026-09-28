@@ -372,3 +372,38 @@ footer p {
         grid-template-columns: 4.8rem 1fr;
     }
 }
+
+/* Conferences */
+.conf-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.conf-list li {
+    display: grid;
+    grid-template-columns: 3rem 1fr;
+    gap: 0 1rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+.conf-list .tag {
+    display: inline-block;
+    min-width: 5.6rem;
+    text-align: center;
+    margin-right: 0.3rem;
+    vertical-align: 0.1em;
+}
+
+.tag-organizer {
+    background: #000;
+    color: #fff;
+    border-color: #000;
+}
+
+.conf-desc {
+    margin: 0.2rem 0 0.4rem 0;
+    font-size: 0.95rem;
+    color: #333;
+}
