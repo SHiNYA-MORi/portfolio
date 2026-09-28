@@ -273,26 +273,6 @@ footer p {
     color: #666;
 }
 
-.filters {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin: 0 0 2rem 0;
-}
-
-.filters button {
-    font: inherit;
-    background: none;
-    border: none;
-    padding: 0;
-    color: #00c;
-    cursor: pointer;
-}
-
-.filters button[aria-pressed="true"] {
-    color: #000;
-    text-decoration: underline;
-}
 
 .project {
     display: grid;
@@ -302,9 +282,6 @@ footer p {
     border-top: 1px solid #ddd;
 }
 
-.project[hidden] {
-    display: none;
-}
 
 .project-year {
     margin: 0;
