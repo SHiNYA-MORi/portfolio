@@ -45,6 +45,7 @@ header h1 a {
     border-bottom: none;
 }
 
+header h1 a:visited,
 header h1 a:hover {
     color: #000;
 }
@@ -222,4 +223,46 @@ footer p {
     nav ul {
         flex-wrap: wrap;
     }
+}
+
+/* Entries (projects, works, experience) */
+.entry {
+    margin-bottom: 1.8rem;
+}
+
+.entry h4 {
+    font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+    font-size: 1.15rem;
+    font-weight: 500;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.entry .meta {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0.1rem 0 0.5rem 0;
+}
+
+.entry p {
+    margin: 0 0 0.5rem 0;
+}
+
+.entry ul {
+    margin: 0.3rem 0 0 0;
+    padding-left: 1.2rem;
+}
+
+.entry ul li {
+    margin-bottom: 0.3rem;
+}
+
+.label {
+    font-style: italic;
+}
+
+.year {
+    display: inline-block;
+    min-width: 3rem;
+    color: #666;
 }
