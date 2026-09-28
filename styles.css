@@ -342,34 +342,10 @@ footer p {
     line-height: 1.6;
 }
 
-.credits {
-    display: grid;
-    grid-template-columns: 5.5rem 1fr;
-    gap: 0.1rem 0.8rem;
-    margin: 0 0 0.6rem 0;
-    font-size: 0.95rem;
-}
-
-.credits dt {
-    color: #666;
-    font-style: italic;
-}
-
-.credits dd {
-    margin: 0;
-}
-
-.credit {
-    color: #666;
-}
 
 @media (max-width: 600px) {
     .project {
         grid-template-columns: 1fr;
-    }
-
-    .credits {
-        grid-template-columns: 4.8rem 1fr;
     }
 }
 
@@ -406,4 +382,9 @@ footer p {
     margin: 0.2rem 0 0.4rem 0;
     font-size: 0.95rem;
     color: #333;
+}
+
+.project-body .role {
+    font-style: italic;
+    color: #444;
 }
