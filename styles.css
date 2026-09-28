@@ -302,12 +302,6 @@ footer p {
     margin: 0 0 0.5rem 0;
 }
 
-.tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-    margin: 0.3rem 0 0.6rem 0 !important;
-}
 
 .tag {
     font-size: 0.75rem;
