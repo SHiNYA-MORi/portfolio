@@ -266,3 +266,109 @@ footer p {
     min-width: 3rem;
     color: #666;
 }
+
+/* Projects archive */
+.note {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 0 0 2rem 0;
+}
+
+.filters button {
+    font: inherit;
+    background: none;
+    border: none;
+    padding: 0;
+    color: #00c;
+    cursor: pointer;
+}
+
+.filters button[aria-pressed="true"] {
+    color: #000;
+    text-decoration: underline;
+}
+
+.project {
+    display: grid;
+    grid-template-columns: 5rem 1fr;
+    gap: 0 1rem;
+    padding: 1.2rem 0;
+    border-top: 1px solid #ddd;
+}
+
+.project[hidden] {
+    display: none;
+}
+
+.project-year {
+    margin: 0;
+    color: #666;
+    line-height: 1.4;
+    font-size: 1.15rem;
+}
+
+.project-body h4 {
+    font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+    font-size: 1.15rem;
+    font-weight: 500;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.project-body p {
+    margin: 0 0 0.5rem 0;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin: 0.3rem 0 0.6rem 0 !important;
+}
+
+.tag {
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    border: 1px solid #999;
+    border-radius: 2px;
+    padding: 0 0.4rem;
+    line-height: 1.6;
+}
+
+.credits {
+    display: grid;
+    grid-template-columns: 5.5rem 1fr;
+    gap: 0.1rem 0.8rem;
+    margin: 0 0 0.6rem 0;
+    font-size: 0.95rem;
+}
+
+.credits dt {
+    color: #666;
+    font-style: italic;
+}
+
+.credits dd {
+    margin: 0;
+}
+
+.credit {
+    color: #666;
+}
+
+@media (max-width: 600px) {
+    .project {
+        grid-template-columns: 1fr;
+    }
+
+    .credits {
+        grid-template-columns: 4.8rem 1fr;
+    }
+}
